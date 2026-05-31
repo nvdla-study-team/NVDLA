@@ -10,3 +10,19 @@ vmod/dw_components/
 outdir/
 .nvprojectname
 tree.make
+
+# Local IDE metadata
+.dvt/
+dvt_build.log
+
+# Common simulator byproducts
+*.vpd
+*.fsdb
+*.vcd
+vcs.key
+ucli.key
+novas.*
+.vcsmx_rebuild
+DVEfiles/
+csrc/
+*.daidir/
