@@ -48,7 +48,7 @@ export CONS="cons"
 
 
 # Design Compiler Installation - Where do I find the dc_shell executable
-export DC_PATH="/home/tools/synopsys/syn_2016.12-SP5-1/bin"
+export DC_PATH="/home/yian/Synopsys/syn/V-2023.12-SP3/bin"
 
 
 # ===========================

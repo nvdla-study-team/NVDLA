@@ -33,7 +33,7 @@ export DEF="def"
 # TOOL RELATED VARIABLES
 # ===========================
 # Design Compiler Installation - Where do I find the dc_shell executable
-export DC_PATH=""
+export DC_PATH="/home/yian/Synopsys/syn/V-2023.12-SP3/bin"
 
 # ===========================
 # LIBRARY RELATED VARIABLES
@@ -74,4 +74,3 @@ export DONT_UNGROUP_LIST=""
 
 # For Job management
 export COMMAND_PREFIX=""
-

@@ -45,19 +45,25 @@
 # ----------------------------------------------------------------------------
 # TOOL LOCATIONS
 
-  export VCS_HOME   := /home/tools/vcs/mx-2015.09-SP2-9-T0426
+  VCS_HOME ?= /home/yian/Synopsys/vcs/V-2023.12-SP2
+  export VCS_HOME
 
   VCS_EXECUTABLE    := ./simv
 
-  export VERDI_HOME := /home/tools/debussy/verdi3_2015.09-SP2-11
+  VERDI_HOME ?= /home/yian/Synopsys/verdi/V-2023.12-SP2
+  export VERDI_HOME
 
-  export NOVAS_HOME := /home/tools/debussy/verdi3_2015.09-SP2-11
+  NOVAS_HOME ?= $(VERDI_HOME)
+  export NOVAS_HOME
 
-  export LM_LICENSE_FILE := /home/tools/admin/license_files
+  LM_LICENSE_FILE ?=
+  export LM_LICENSE_FILE
 
-  export VCS_CC     := /home/utils/gcc-4.7.2/bin/g++
+  VCS_CC ?= /usr/bin/g++
+  export VCS_CC
 
-  export SPYGLASS_HOME := /home/tools/spyglass/SpyGlass-5.2.1.2/SPYGLASS_HOME
+  SPYGLASS_HOME ?= /home/tools/spyglass/SpyGlass-5.2.1.2/SPYGLASS_HOME
+  export SPYGLASS_HOME
 
   IMAGEVIEWER       := gimp
 
@@ -71,10 +77,10 @@ LN	:= /bin/ln
 RM	:= /bin/rm
 GREP	:= /bin/grep
 EGREP	:= /bin/egrep
-PERL	:= /home/utils/perl-5.16/5.16.1-nothreads-64/bin/perl
+PERL	?= /usr/bin/perl
 AWK	:= /usr/bin/awk
 CP	:= /bin/cp
-TEE	:= /home/gnu/bin/tee
+TEE	?= /usr/bin/tee
 CSH	:= /bin/csh
 MV	:= /bin/mv
 CP	:= /bin/cp
@@ -579,6 +585,8 @@ check_cde_tests:
 # Build the example testbench 
 ${VCS_EXECUTABLE}:
 	${LSF_COMMAND} $(VCS_HOME)/bin/vcs -f ${DUTFILE} -Xddg=0x1 -o ${VCS_EXECUTABLE} -cpp ${VCS_CC} ${VCS_ARGS} ${VERDI_PLI} ${TB_FILES} -l ${COMPILELOG} ${DUT_DEFINES} ${VERDI_LD_FLAGS} ${VCS_PARTIION_ARGS}
+
+${COMPILELOG}: ${VCS_EXECUTABLE}
 
 build : dut
 	${LSF_COMMAND} $(VCS_HOME)/bin/vcs -f ${DUTFILE} -Xddg=0x1 -o ${VCS_EXECUTABLE} -cpp ${VCS_CC} ${VCS_ARGS} ${VERDI_PLI} ${TB_FILES} -l ${COMPILELOG} ${DUT_DEFINES} ${VERDI_LD_FLAGS} ${VCS_PARTIION_ARGS} -Mdir=${VCS_EXECUTABLE}Csrc ; ./checkcompile.pl ${COMPILELOG} ${VCS_EXECUTABLE}

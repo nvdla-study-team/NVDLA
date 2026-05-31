@@ -3,6 +3,7 @@
 ##
 ## build tree
 ##
+use lib "$ENV{HOME}/perl5/lib/perl5";
 use Getopt::Long;
 use Data::Dumper;
 use YAML qw(LoadFile);

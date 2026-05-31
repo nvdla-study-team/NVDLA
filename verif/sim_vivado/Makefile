@@ -77,10 +77,10 @@ LN	:= /bin/ln
 RM	:= /bin/rm
 GREP	:= /bin/grep
 EGREP	:= /bin/egrep
-PERL	:= /home/utils/perl-5.16/5.16.1-nothreads-64/bin/perl
+PERL	?= /usr/bin/perl
 AWK	:= /usr/bin/awk
 CP	:= /bin/cp
-TEE	:= /home/gnu/bin/tee
+TEE	?= /usr/bin/tee
 CSH	:= /bin/csh
 MV	:= /bin/mv
 CP	:= /bin/cp
@@ -481,4 +481,3 @@ clean:
 	${QUIET}${RM} -rf *.pb *.log ${XILINX_EXECUTABLE}* webtalk* .Xil
 	${QUIET}${RM} -rf ${notdir ${REGRESS_LIST}}
 	${QUIET}${ECHO} "NVINFO : Done."
-
